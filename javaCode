@@ -1,0 +1,174 @@
+//calc.java
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class javaCalc {
+
+    private double total1=0.0;
+    private double total2=0.0;
+    private JPanel javacalculator;
+    private JTextField textDisplay;
+    private JButton btnzero;
+    private JButton btnseven;
+    private JButton btnfour;
+    private JButton btnone;
+    private JButton btntwo;
+    private JButton btnfive;
+    private JButton btn8;
+    private JButton btndot;
+    private JButton btnthree;
+    private JButton btnsix;
+    private JButton btnnine;
+    private JButton btnclear;
+    private JButton btnplus;
+    private JButton btndivide;
+    private JButton btnminus;
+    private JButton btnmultiply;
+    private JButton btnequal;
+
+    public javaCalc() {
+        btnone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnoneText=textDisplay.getText()+btnone.getText();
+                textDisplay.setText(btnoneText);
+
+            }
+        });
+        //btntwo
+        btntwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnTwoText=textDisplay.getText()+btntwo.getText();
+                textDisplay.setText(btnTwoText);
+
+            }
+        });
+        //btnthree
+        btnthree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnThreeText = textDisplay.getText() + btnthree.getText();
+                textDisplay.setText(btnThreeText);
+            }
+            });
+        //btnfour
+        btnfour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnFourText = textDisplay.getText() + btnfour.getText();
+                textDisplay.setText(btnFourText);
+            }
+        });
+            //btnfive
+        btnfive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnFiveText = textDisplay.getText() + btnfive.getText();
+                textDisplay.setText(btnFiveText);
+            }
+        });
+        //btnsix
+        btnsix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnSixText = textDisplay.getText() + btnsix.getText();
+                textDisplay.setText(btnSixText);
+            }
+        });
+        //btnseven
+        btnseven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnSevenText = textDisplay.getText() + btnseven.getText();
+                textDisplay.setText(btnSevenText);
+            }
+        });
+        //eight
+
+        btn8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnEightText = textDisplay.getText() + btn8.getText();
+                textDisplay.setText(btnEightText);
+            }
+        });
+        //nine
+
+        btnnine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnNineText = textDisplay.getText() + btnnine.getText();
+                textDisplay.setText(btnNineText);
+            }
+        });
+        //zero
+
+        btnzero.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btnZeroText = textDisplay.getText() + btnzero.getText();
+                textDisplay.setText(btnZeroText);
+            }
+        });
+        //btndot
+        btndot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(textDisplay.getText().equals("")){
+                    textDisplay.setText("0.");
+                } else if (textDisplay.getText().contains(".")) {
+                    btndot.setEnabled(false);
+
+
+                }
+                else {
+                    String btndot=textDisplay.getText();
+                    textDisplay.setText(btndot);
+                }
+                btndot.setEnabled(true);
+            }
+
+        });
+        //plus
+
+
+        btnplus.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                total1=total1+Double.parseDouble(textDisplay.getText());
+                textDisplay.setText("");
+            }
+        });
+        //equals
+        btnequal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                total2=total1+Double.parseDouble(textDisplay.getText());
+                textDisplay.setText(Double.toString(total2));
+                total1=0;
+            }
+        });
+        //clear
+        btnclear.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                total2=0;
+                textDisplay.setText("");
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("javaCalc");
+        frame.setContentPane(new javaCalc().javacalculator);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
+
+
+
+
